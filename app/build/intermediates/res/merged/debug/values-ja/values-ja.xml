@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">設定</string>
+    <string name="app_name">メッカはドッチ？</string>
+    <string name="east_north_east_str">東北東</string>
+    <string name="east_south_east_str">東南東</string>
+    <string name="east_south_str">南東</string>
+    <string name="east_str">東</string>
+    <string name="makkah_distance">メッカまで：</string>
+    <string name="makkah_orientation">メッカの方位：</string>
+    <string name="north_east_str">北東</string>
+    <string name="north_north_east_str">北北東</string>
+    <string name="north_north_west_str">北北西</string>
+    <string name="north_str">北</string>
+    <string name="orientation_name">現在の方位：</string>
+    <string name="south_south_east_str">南南東</string>
+    <string name="south_south_west_str">南南西</string>
+    <string name="south_str">南</string>
+    <string name="south_west_str">南西</string>
+    <string name="west_north_str">北西</string>
+    <string name="west_north_west_str">西北西</string>
+    <string name="west_south_west_str">西南西</string>
+    <string name="west_str">西</string>
+</resources>

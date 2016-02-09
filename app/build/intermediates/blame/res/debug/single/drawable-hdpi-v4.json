@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\syoguSys\\AndroidStudioProjects\\whereismakkah1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\syoguSys\\AndroidStudioProjects\\whereismakkah1\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
         "merged": "C:\\Users\\forever011\\AndroidStudioProjects\\whereismakkah1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
         "source": "C:\\Users\\forever011\\AndroidStudioProjects\\whereismakkah1\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
     }

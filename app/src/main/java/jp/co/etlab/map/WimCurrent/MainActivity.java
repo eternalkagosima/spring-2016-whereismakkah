@@ -14,6 +14,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,6 +22,8 @@ import android.view.MenuItem;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -66,6 +69,9 @@ public class MainActivity extends Activity {
 	    private TextView txtDistance;
 	    private TextView txtTodeg;
 	    private TextView txtArrow;
+		private ImageView imgArrow;
+		private float nowDist;
+
 	    static Context context;
 		@SuppressWarnings("unused")
 		private double az2;
@@ -110,8 +116,12 @@ public class MainActivity extends Activity {
 			this.txtDistance = (TextView) rootView.findViewById(R.id.distance);
 			this.txtTodeg = (TextView) rootView.findViewById(R.id.todeg);
 			this.txtArrow = (TextView) rootView.findViewById(R.id.toarrow);
+			this.imgArrow = (ImageView)rootView.findViewById(R.id.imageView);
+
 			//txtDegree.setText("test");
 	       	//this.context = getActivity();
+			imgArrow.setImageResource(R.drawable.aroow2);
+			nowDist = 0.0f;
 
 	       	//２点間距離計算クラス
 	       	GeoDist geo = new GeoDist();
@@ -181,10 +191,20 @@ public class MainActivity extends Activity {
 	            //txtDegree = (TextView)findViewById(R.id.degree);
 	            //txtDegree = (TextView)v.findViewById(R.id.degree);
 	            //txtDegree.setText(Integer.toString((int)degreeDir));
-	            txtDegree.setText("現在の方位："+getHoui(degreeDir));
-	            txtDistance.setText(String.format("メッカまで：%1$,.2fKm",s12/1000.0));//m->Km
-	            txtTodeg.setText("メッカの方位："+getHoui((float)az1));
+	            txtDegree.setText(getString(R.string.orientation_name)+getHoui(degreeDir));
+	            txtDistance.setText(getString(R.string.makkah_distance)+String.format("%1$,.2fKm",s12/1000.0));//m->Km
+	            txtTodeg.setText(getString(R.string.makkah_orientation)+getHoui((float)az1));
 	            txtArrow.setText(getArrow(degreeDir,(float)az1));
+
+				//imgView
+
+				ImageView tmp=(ImageView)imgArrow;
+				RotateAnimation anim = new RotateAnimation((float)az1-nowDist,degreeDir,tmp.getWidth()/2,tmp.getHeight()/2);
+				anim.setDuration(3000);
+				anim.setFillAfter(true);
+				tmp.startAnimation(anim);
+				nowDist = degreeDir;
+				Log.d("whereismakkah1:az1",String.valueOf(degreeDir));
 	        }
 		}
 
@@ -232,38 +252,38 @@ public class MainActivity extends Activity {
 
 	    	if(((degree> -11.25) && (degree<=0)) ||
 	    			((degree>0) && (degree<=11.25))){
-	    		houi = "北";
+	    		houi = getString(R.string.north_str);
 	    	}else if((degree> 11.25) && (degree<=33.75)) {
-	    		houi = "北北東";
+	    		houi = getString(R.string.north_north_east_str);
 	    	}else if((degree> 33.75) && (degree<=56.25)) {
-	    		houi = "北東";
+	    		houi = getString(R.string.north_east_str);
 	    	}else if((degree> 56.25) && (degree<=78.75)) {
-	    		houi = "東北東";
+	    		houi = getString(R.string.east_north_east_str);
 	    	}else if((degree> 78.75) && (degree<=101.25)) {
-	    		houi = "東";
+	    		houi = getString(R.string.east_str);
 	    	}else if((degree> 101.25) && (degree<=123.75)) {
-	    		houi = "東南東";
+	    		houi = getString(R.string.east_south_east_str);
 	    	}else if((degree> 123.75) && (degree<=146.25)) {
-	    		houi = "南東";
+	    		houi = getString(R.string.east_south_str);
 	    	}else if((degree> 146.25) && (degree<=168.75)) {
-	    		houi = "南南東";
+	    		houi = getString(R.string.south_south_east_str);
 	    	}else if(((degree> 168.75) && (degree<=180.0)) ||
 	    			((degree< -168.75) && (degree>=-180.0))) {
-	    		houi = "南";
+	    		houi = getString(R.string.south_str);
 	    	}else if((degree< -11.25) && (degree>=-33.75)) {
-	    		houi = "北北西";
+	    		houi = getString(R.string.north_north_west_str);
 	    	}else if((degree< -33.75) && (degree>=-56.25)) {
-	    		houi = "北西";
+	    		houi = getString(R.string.west_north_str);
 	    	}else if((degree< -56.25) && (degree>=-78.75)) {
-	    		houi = "西北西";
+	    		houi = getString(R.string.west_north_west_str);
 	    	}else if((degree< -78.75) && (degree>=-101.25)) {
-	    		houi = "西";
+	    		houi = getString(R.string.west_str);
 	    	}else if((degree< -101.25) && (degree>=-123.75)) {
-	    		houi = "西南西";
+	    		houi = getString(R.string.west_south_west_str);
 	    	}else if((degree< -123.75) && (degree>=-146.25)) {
-	    		houi = "南西";
+	    		houi = getString(R.string.south_west_str);
 	    	}else if((degree< -146.25) && (degree>=-168.75)) {
-	    		houi = "南南西";
+	    		houi = getString(R.string.south_south_west_str);
 	    	}
 	    	return houi;
 	    }
@@ -287,7 +307,7 @@ public class MainActivity extends Activity {
 
 	    	if(((divDire> -5.0) && (divDire<=0.0)) ||
 	    			((divDire>0.0) && (divDire<=5.0))){
-	    		arrow = "^";
+	    		arrow = "صحيح";
 	    	}else if((divDire> 5.0) && (divDire<=90.0)) {
 	    		arrow = "<";
 	    	}else if((divDire> 90.0) && (divDire<=180.0)) {

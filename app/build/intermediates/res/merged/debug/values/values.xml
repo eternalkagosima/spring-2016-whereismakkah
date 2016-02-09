@@ -3,8 +3,26 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <string name="action_settings">Settings</string>
-    <string name="app_name">メッカはドッチ？</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Where is makkah？</string>
+    <string name="east_north_east_str">East-Northeast</string>
+    <string name="east_south_east_str">East-Southeast</string>
+    <string name="east_south_str">Eastsouth</string>
+    <string name="east_str">East</string>
+    <string name="makkah_distance">to makkah:</string>
+    <string name="makkah_orientation">makkah orentation:</string>
+    <string name="north_east_str">Northeast</string>
+    <string name="north_north_east_str">North-Northeast</string>
+    <string name="north_north_west_str">North-Northwest</string>
+    <string name="north_str">North</string>
+    <string name="orientation_name">current orentation:</string>
+    <string name="south_south_east_str">South-Southeast</string>
+    <string name="south_south_west_str">South-Southwest</string>
+    <string name="south_str">South</string>
+    <string name="south_west_str">Southwest</string>
+    <string name="west_north_str">Westnorth</string>
+    <string name="west_north_west_str">West-Northwest</string>
+    <string name="west_south_west_str">West-Southwest</string>
+    <string name="west_str">West</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in

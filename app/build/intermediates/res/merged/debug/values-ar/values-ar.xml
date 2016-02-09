@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">إعدادات</string>
+    <string name="app_name">أين هو مكة المكرمة</string>
+    <string name="makkah_distance">لمكة المكرمة:</string>
+    <string name="makkah_orientation">مكة المكرمة التوجه:</string>
+    <string name="orientation_name">التوجه الحالي:</string>
+</resources>
